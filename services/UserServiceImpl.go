@@ -14,8 +14,15 @@ type UserServiceImpl struct {
 	ctx            context.Context
 }
 
-func (u *UserServiceImpl) CreateUser(user *models.User) error {
-	_, err := u.userCollection.InsertOne(u.ctx, user)
+func NewUserServiceImpl(userCollection *mongo.Collection, ctx context.Context) *UserServiceImpl {
+	return &UserServiceImpl{
+		userCollection: userCollection,
+		ctx:            ctx,
+	}
+}
+
+func (s *UserServiceImpl) CreateUser(user *models.User) error {
+	_, err := s.userCollection.InsertOne(s.ctx, user)
 	if err != nil {
 		return err
 	}
