@@ -1,4 +1,4 @@
-module github.com/fabulousCode
+module github/fabulousCode
 
 go 1.20
 
