@@ -19,6 +19,17 @@ func NewUserController(userService services.UserService) *UserController {
 	}
 }
 
+func (c *UserController) SetupRoutes(router *gin.RouterGroup) {
+	userRoutes := router.Group("/users")
+	{
+		userRoutes.POST("", c.CreateUserHandler)
+		userRoutes.GET("", c.GetAllUsersHandler)
+		userRoutes.GET("/:id", c.GetUserHandler)
+		userRoutes.PUT("/:id", c.UpdateUserHandler)
+		userRoutes.DELETE("/:id", c.DeleteUserHandler)
+	}
+}
+
 func (c *UserController) CreateUserHandler(ctx *gin.Context) {
 	var user models.User
 	if err := ctx.ShouldBindJSON(&user); err != nil {

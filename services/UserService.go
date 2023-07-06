@@ -1,8 +1,6 @@
 package services
 
-import (
-	"github/fabulousCode/models"
-)
+import "github/fabulousCode/models"
 
 type UserService interface {
 	CreateUser(*models.User) error
