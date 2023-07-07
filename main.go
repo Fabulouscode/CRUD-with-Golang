@@ -2,6 +2,8 @@ package main
 
 import (
 	"context"
+	"github/fabulousCode/controllers"
+	"github/fabulousCode/services"
 	"log"
 	"net/http"
 	"os"
@@ -11,9 +13,6 @@ import (
 	"github.com/gin-gonic/gin"
 	"go.mongodb.org/mongo-driver/mongo"
 	"go.mongodb.org/mongo-driver/mongo/options"
-
-	"github/fabulousCode/services/controllers"
-	"github/fabulousCode/services/services"
 )
 
 func main() {
